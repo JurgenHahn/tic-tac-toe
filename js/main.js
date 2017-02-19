@@ -22,6 +22,16 @@ $('.box').on('click', function(){
 });
 
 
+
+
+function reset(){
+  $('body').attr('class', 'X');
+  $('.filled').attr('class', 'box');
+  $('.box').empty();
+  alert("Game Over. Thanks for Playing!");
+};
+
+
 function winCondition(){
 
   var topLeft = $('.box')[0].textContent;
@@ -40,6 +50,8 @@ function winCondition(){
     (topLeft === middleMiddle && topLeft === bottomRight))){
     // console.log("Winner!");
     $('.box').attr("class", "filled");
+    setTimeout(reset, 2500);
+
   }
 
   else if ((topRight === "X" || topRight === "O") &&
@@ -47,6 +59,7 @@ function winCondition(){
     (topRight === middleMiddle && topRight === bottomLeft))){
     // console.log("Winner!");
     $('.box').attr("class", "filled");
+    setTimeout(reset, 2500);
   }
 
   else if ((middleMiddle === "X" || middleMiddle === "O") &&
@@ -54,25 +67,27 @@ function winCondition(){
     (middleMiddle === middleRight && middleMiddle === middleLeft))){
     // console.log("Winner!");
     $('.box').attr("class", "filled");
+    setTimeout(reset, 2500);
   }
 
   else if ((bottomMiddle === "X" || bottomMiddle === "O") &&
   (bottomMiddle === bottomRight && bottomMiddle === bottomLeft)){
     // console.log("Winner!");
     $('.box').attr("class", "filled");
+    setTimeout(reset, 2500);
   }
 
-  // else if (
-  //   (topLeft === "X" || topLeft === "0") &&
-  //   (topMiddle === "X" || topMiddle === "0") &&
-  //   (topRight === "X" || topRight === "0") &&
-  //   (middleLeft === "X" || middleLeft === "0") &&
-  //   (middleMiddle === "X" || middleMiddle === "0") &&
-  //   (middleRight === "X" || middleRight === "0") &&
-  //   (bottomLeft === "X" || bottomLeft === "0") &&
-  //   (bottomMiddle === "X" || bottomMiddle === "0") &&
-  //   (bottomRight === "X" || bottomRight === "0")
-  //   ){
-  //   console.log("Draw!");
-  // };
+  else if (
+    (topLeft === "X" || topLeft === "0") &&
+    (topMiddle === "X" || topMiddle === "0") &&
+    (topRight === "X" || topRight === "0") &&
+    (middleLeft === "X" || middleLeft === "0") &&
+    (middleMiddle === "X" || middleMiddle === "0") &&
+    (middleRight === "X" || middleRight === "0") &&
+    (bottomLeft === "X" || bottomLeft === "0") &&
+    (bottomMiddle === "X" || bottomMiddle === "0") &&
+    (bottomRight === "X" || bottomRight === "0")
+    ){
+    setTimeout(reset, 2500);
+  };
 };
