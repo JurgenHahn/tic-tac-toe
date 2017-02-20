@@ -54,6 +54,11 @@ table {
   float: left;
   height: 100px;
   width: 30%;
+  font-size: 44px;
+  text-align: center;
+  line-height: 2.2;
+  font-family: Helvetica;
+  /*color: black; */
 }
 
 .filled {
@@ -61,6 +66,11 @@ table {
   float: left;
   height: 100px;
   width: 30%;
+  font-size: 44px;
+  text-align: center;
+  line-height: 2.2;
+  font-family: Helvetica;
+  color: red;
 
 }
 .row {
@@ -71,4 +81,6 @@ table {
 .wrap {
   width: 300px;
   height: 300px;
+
+
 }
