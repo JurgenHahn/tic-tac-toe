@@ -1,7 +1,7 @@
 $('.box').on('click', function(){
-  // $('body').toggleClass('O');
-  var space = $(this).text().trim();
+
   var player = $('body').attr('class');
+  var space = $(this).text().trim();
   var unused = "";
 
   if (player === 'X' && space === unused) {
@@ -12,10 +12,10 @@ $('.box').on('click', function(){
     $('body').attr('class', 'X');
   };
   winCondition();
-  // draw();
 
   function winCondition(){
 
+    var box = $('.box')
     var topLeft = $('.box')[0].textContent;
     var topMiddle = $('.box')[1].textContent;
     var topRight = $('.box')[2].textContent;
@@ -26,27 +26,44 @@ $('.box').on('click', function(){
     var bottomMiddle = $('.box')[7].textContent;
     var bottomRight = $('.box')[8].textContent;
 
-    if ((topLeft === "X" || topLeft === "O") &&
-      ((topLeft === topMiddle && topLeft === topRight) ||
-      (topLeft === middleLeft && topLeft === bottomLeft) ||
-      (topLeft === middleMiddle && topLeft === bottomRight))){
+
+    if ((topLeft === "X" || topLeft === "O") && (topLeft === topMiddle && topLeft === topRight)){
+      box[0].style.color = "red", box[1].style.color = "red", box[2].style.color = "red"
       setTimeout(winReset, 300);
     }
 
-    else if ((topRight === "X" || topRight === "O") &&
-      ((topRight === middleRight && topRight === bottomRight) ||
-      (topRight === middleMiddle && topRight === bottomLeft))){
+    else if ((topLeft === "X" || topLeft === "O") && (topLeft === middleMiddle && topLeft === bottomRight)){
+      box[0].style.color = "red", box[4].style.color = "red", box[8].style.color = "red"
       setTimeout(winReset, 300);
     }
 
-    else if ((middleMiddle === "X" || middleMiddle === "O") &&
-      ((middleMiddle === topMiddle && middleMiddle === bottomMiddle) ||
-      (middleMiddle === middleRight && middleMiddle === middleLeft))){
+    else if ((topLeft === "X" || topLeft === "O") && (topLeft === middleLeft && topLeft === bottomLeft)){
+      box[0].style.color = "red", box[3].style.color = "red", box[6].style.color = "red"
       setTimeout(winReset, 300);
     }
 
-    else if ((bottomMiddle === "X" || bottomMiddle === "O") &&
-      (bottomMiddle === bottomRight && bottomMiddle === bottomLeft)){
+    else if ((topMiddle === "X" || topMiddle === "O") && (topMiddle === middleMiddle && topMiddle === bottomMiddle)){
+      box[1].style.color = "red", box[4].style.color = "red", box[7].style.color = "red"
+      setTimeout(winReset, 300);
+    }
+
+    else if ((topRight === "X" || topRight === "O") && (topRight === middleRight && topRight === bottomRight)){
+      box[2].style.color = "red", box[5].style.color = "red", box[8].style.color = "red"
+      setTimeout(winReset, 300);
+    }
+
+    else if ((topRight === "X" || topRight === "O") && (topRight === middleMiddle && topRight === bottomLeft)){
+      box[2].style.color = "red", box[4].style.color = "red", box[6].style.color = "red"
+      setTimeout(winReset, 300);
+    }
+
+    else if ((middleLeft === "X" || middleLeft === "O") && (middleLeft === middleMiddle && middleLeft === middleRight)){
+      box[3].style.color = "red", box[4].style.color = "red", box[5].style.color = "red"
+      setTimeout(winReset, 300);
+    }
+
+    else if ((bottomLeft === "X" || bottomLeft === "O") && (bottomLeft === bottomMiddle && bottomLeft === bottomRight)){
+      box[6].style.color = "red", box[7].style.color = "red", box[8].style.color = "red"
       setTimeout(winReset, 300);
     }
 
@@ -59,7 +76,7 @@ $('.box').on('click', function(){
       (middleRight === "X"  || middleRight === "O")   &&
       (bottomLeft === "X"   || bottomLeft === "O")    &&
       (bottomMiddle === "X" || bottomMiddle === "O")  &&
-      (bottomRight === "X"  || bottomRight === "O ")
+      (bottomRight === "X"  || bottomRight === "O")
     ){
     setTimeout(drawReset, 300);
     };
@@ -73,10 +90,11 @@ $('.box').on('click', function(){
     };
     $('body').attr('class', 'X');
     $('.box').empty();
+    $('.box').css('color', 'black');
   };
 
   function drawReset(){
-    alert("It's a Draw! You're both equally bad!");  
+    alert("It's a Draw! You're both equally bad!");
     $('body').attr('class', 'X');
     $('.box').empty();
   }

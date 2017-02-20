@@ -58,19 +58,7 @@ table {
   text-align: center;
   line-height: 2.2;
   font-family: Helvetica;
-  /*color: black; */
 }
-
-.filled {
-  border: 1px solid black;
-  float: left;
-  height: 100px;
-  width: 30%;
-  font-size: 44px;
-  text-align: center;
-  line-height: 2.2;
-  font-family: Helvetica;
-  color: red;
 
 }
 .row {
@@ -78,7 +66,7 @@ table {
   margin-bottom: 10px;
 }
 
-.wrap {
+.board {
   width: 300px;
   height: 300px;
 
