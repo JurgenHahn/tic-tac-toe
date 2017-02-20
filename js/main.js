@@ -12,7 +12,7 @@ $('.box').on('click', function(){
     $('body').attr('class', 'X');
   };
   winCondition();
-  draw();
+  // draw();
 
   function winCondition(){
 
@@ -30,40 +30,27 @@ $('.box').on('click', function(){
       ((topLeft === topMiddle && topLeft === topRight) ||
       (topLeft === middleLeft && topLeft === bottomLeft) ||
       (topLeft === middleMiddle && topLeft === bottomRight))){
-      setTimeout(reset, 300);
+      setTimeout(winReset, 300);
     }
 
     else if ((topRight === "X" || topRight === "O") &&
       ((topRight === middleRight && topRight === bottomRight) ||
       (topRight === middleMiddle && topRight === bottomLeft))){
-      setTimeout(reset, 300);
+      setTimeout(winReset, 300);
     }
 
     else if ((middleMiddle === "X" || middleMiddle === "O") &&
       ((middleMiddle === topMiddle && middleMiddle === bottomMiddle) ||
       (middleMiddle === middleRight && middleMiddle === middleLeft))){
-      setTimeout(reset, 300);
+      setTimeout(winReset, 300);
     }
 
     else if ((bottomMiddle === "X" || bottomMiddle === "O") &&
       (bottomMiddle === bottomRight && bottomMiddle === bottomLeft)){
-      setTimeout(reset, 300);
-    };
-  };
+      setTimeout(winReset, 300);
+    }
 
-  function draw(){
-
-    var topLeft = $('.box')[0].textContent;
-    var topMiddle = $('.box')[1].textContent;
-    var topRight = $('.box')[2].textContent;
-    var middleLeft = $('.box')[3].textContent;
-    var middleMiddle = $('.box')[4].textContent;
-    var middleRight = $('.box')[5].textContent;
-    var bottomLeft = $('.box')[6].textContent;
-    var bottomMiddle = $('.box')[7].textContent;
-    var bottomRight = $('.box')[8].textContent;
-
-    if (
+    else if (
       (topLeft === "X"      || topLeft === "O")       &&
       (topMiddle === "X"    || topMiddle === "O")     &&
       (topRight === "X"     || topRight === "O")      &&
@@ -74,11 +61,11 @@ $('.box').on('click', function(){
       (bottomMiddle === "X" || bottomMiddle === "O")  &&
       (bottomRight === "X"  || bottomRight === "O ")
     ){
-    setTimeout(reset2, 300);
+    setTimeout(drawReset, 300);
     };
   };
 
-  function reset(){
+  function winReset(){
     if (player === 'X') {
       alert("X Wins! X gun give it to ya!");
     } else {
@@ -88,10 +75,10 @@ $('.box').on('click', function(){
     $('.box').empty();
   };
 
-  function reset2(){
-    alert("It's a Draw! You're both equally bad!");
-    $('.box').empty();
+  function drawReset(){
+    alert("It's a Draw! You're both equally bad!");  
     $('body').attr('class', 'X');
+    $('.box').empty();
   }
 
 });
